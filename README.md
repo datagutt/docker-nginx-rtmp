@@ -30,7 +30,7 @@ docker run -it -p 1935:1935 -p 8080:80 --rm nginx-rtmp
 
 * Stream live content to:
 ```
-rtmp://localhost:1935/stream/$STREAM_NAME
+rtmp://localhost:1935/publish/$STREAM_NAME
 ```
 
 ### SSL 
@@ -58,11 +58,11 @@ volumes:
 
 ### OBS Configuration
 * Stream Type: `Custom Streaming Server`
-* URL: `rtmp://localhost:1935/stream`
-* Stream Key: `hello`
+* URL: `rtmp://localhost:1935/publish`
+* Stream Key: `hello?psk=totallysecretpassword`
 
 ### Watch Stream
-* FFplay: `ffplay -fflags nobuffer rtmp://localhost:1935/stream/hello`
+* FFplay: `ffplay -fflags nobuffer rtmp://localhost:1935/publish/hello`
 
 ### FFmpeg Build
 ```

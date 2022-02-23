@@ -139,7 +139,7 @@ ENV HTTP_PORT 80
 ENV HTTPS_PORT 443
 ENV RTMP_PORT 1935
 ENV STAT_LOCATION "/stat"
-ENV RTMP_STREAM_KEY="rtmp"
+ENV RTMP_STREAM_KEY="totallysecretpassword"
 
 RUN apk add --no-cache \
   ca-certificates \

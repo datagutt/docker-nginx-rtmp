@@ -11,6 +11,6 @@ services:
       - HTTP_PORT=80
       - RTMP_PORT=1935
       - STAT_LOCATION=/stat
-      - RTMP_STREAM_KEY=rtmp
+      - RTMP_STREAM_KEY=totallysecretpassword
     volumes:
       - ./certs:/opt/certs
