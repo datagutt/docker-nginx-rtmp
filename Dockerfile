@@ -1,5 +1,5 @@
 ARG NGINX_VERSION=1.21.6
-ARG NGINX_RTMP_VERSION=1.2.2
+ARG NGINX_RTMP_VERSION=dev
 ARG FFMPEG_VERSION=5.0
 
 ##############################
@@ -36,9 +36,9 @@ RUN wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
   rm nginx-${NGINX_VERSION}.tar.gz
 
 # Get nginx-rtmp module.
-RUN wget https://github.com/arut/nginx-rtmp-module/archive/v${NGINX_RTMP_VERSION}.tar.gz && \
-  tar zxf v${NGINX_RTMP_VERSION}.tar.gz && \
-  rm v${NGINX_RTMP_VERSION}.tar.gz
+RUN wget https://github.com/sergey-dryabzhinsky/nginx-rtmp-module/archive/${NGINX_RTMP_VERSION}.tar.gz && \
+  tar zxf ${NGINX_RTMP_VERSION}.tar.gz && \
+  rm ${NGINX_RTMP_VERSION}.tar.gz
 
 # Compile nginx with nginx-rtmp module.
 WORKDIR /tmp/nginx-${NGINX_VERSION}
@@ -132,12 +132,14 @@ RUN rm -rf /var/cache/* /tmp/*
 ##########################
 # Build the release image.
 FROM alpine:3.15.0
-LABEL MAINTAINER Alfred Gutierrez <alf.g.jr@gmail.com>
+LABEL MAINTAINER Thomas Lekanger <datagutt@lekanger.no>
 
 # Set default ports.
 ENV HTTP_PORT 80
 ENV HTTPS_PORT 443
 ENV RTMP_PORT 1935
+ENV STAT_LOCATION "/stat"
+ENV RTMP_STREAM_KEY="rtmp"
 
 RUN apk add --no-cache \
   ca-certificates \

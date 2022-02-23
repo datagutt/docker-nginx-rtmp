@@ -10,5 +10,7 @@ services:
     environment:
       - HTTP_PORT=80
       - RTMP_PORT=1935
+      - STAT_LOCATION=/stat
+      - RTMP_STREAM_KEY=rtmp
     volumes:
       - ./certs:/opt/certs
