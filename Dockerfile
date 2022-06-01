@@ -3,7 +3,7 @@ ARG NGINX_RTMP_VERSION=dev
 
 ##############################
 # Build the NGINX-build image.
-FROM alpine:3.15.4 as build-nginx
+FROM alpine:3.16.0 as build-nginx
 ARG NGINX_VERSION
 ARG NGINX_RTMP_VERSION
 ARG MAKEFLAGS="-j4"
@@ -60,7 +60,7 @@ RUN rm -rf /var/cache/* /tmp/*
 
 ##########################
 # Build the release image.
-FROM alpine:3.15.4
+FROM alpine:3.16.0
 LABEL MAINTAINER Thomas Lekanger <datagutt@lekanger.no>
 
 # Set default ports.
@@ -68,7 +68,7 @@ ENV HTTP_PORT 80
 ENV HTTPS_PORT 443
 ENV RTMP_PORT 1935
 ENV STAT_LOCATION "/stat"
-ENV RTMP_STREAM_KEY="totallysecretpassword"
+ENV RTMP_STREAM_KEY="secret"
 
 RUN apk add --no-cache \
   ca-certificates \
