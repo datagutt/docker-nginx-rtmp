@@ -2,7 +2,7 @@
 A Dockerfile installing NGINX and nginx-rtmp-module from source with
 default settings for IRL-streaming. Built on Alpine Linux.
 
-* Nginx 1.22.0 (Mainline version compiled from source)
+* Nginx 1.23.0 (Mainline version compiled from source)
 * [nginx-rtmp-module](https://github.com/sergey-dryabzhinsky/nginx-rtmp-module) (Dev branch of Sergey-fork compiled from source)
 * Default IRL-streaming settings (See: [nginx.conf](nginx.conf))
 
