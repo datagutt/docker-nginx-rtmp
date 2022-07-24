@@ -3,7 +3,7 @@ ARG NGINX_RTMP_VERSION=dev
 
 ##############################
 # Build the NGINX-build image.
-FROM alpine:3.16.0 as build-nginx
+FROM alpine:3.16.1 as build-nginx
 ARG NGINX_VERSION
 ARG NGINX_RTMP_VERSION
 ARG MAKEFLAGS="-j4"
