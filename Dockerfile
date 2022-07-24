@@ -60,14 +60,15 @@ RUN rm -rf /var/cache/* /tmp/*
 
 ##########################
 # Build the release image.
-FROM alpine:3.16.0
+FROM alpine:3.16.1
 LABEL MAINTAINER Thomas Lekanger <datagutt@lekanger.no>
 
-# Set default ports.
+# Set default environment variables.
 ENV HTTP_PORT 80
 ENV HTTPS_PORT 443
 ENV RTMP_PORT 1935
 ENV STAT_LOCATION "/stat"
+ENV CONTROL_LOCATION="/control"
 ENV RTMP_STREAM_KEY="secret"
 
 RUN apk add --no-cache \
