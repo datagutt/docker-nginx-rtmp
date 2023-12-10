@@ -3,7 +3,7 @@ ARG NGINX_RTMP_VERSION=dev
 
 ##############################
 # Build the NGINX-build image.
-FROM alpine:3.18 as build-nginx
+FROM alpine:3.19 as build-nginx
 ARG NGINX_VERSION
 ARG NGINX_RTMP_VERSION
 ARG MAKEFLAGS="-j4"
@@ -60,7 +60,7 @@ RUN rm -rf /var/cache/* /tmp/*
 
 ##########################
 # Build the release image.
-FROM alpine:3.18
+FROM alpine:3.19
 LABEL MAINTAINER Thomas Lekanger <datagutt@lekanger.no>
 
 # Set default environment variables.
