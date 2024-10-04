@@ -1,4 +1,4 @@
-ARG NGINX_VERSION=1.27.1
+ARG NGINX_VERSION=1.27.2
 ARG NGINX_RTMP_VERSION=dev
 
 ##############################
